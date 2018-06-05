@@ -10,14 +10,20 @@ import { GlobalService } from './shared/services/global.service';
     providers: [GlobalService]
 })
 export class AppComponent implements OnInit {
-
+    user: any = {};
     urlInfo: any;
 
-    constructor(public location: Location, private route: Router, private urlcheck: GlobalService) {
+    constructor(public location: Location, private router: Router, private urlcheck: GlobalService) {
     }
 
     ngOnInit() {
         this.urlInfo = this.urlcheck.getURLInfo();
+        this.user = JSON.parse(localStorage.getItem('user'));
+        if (this.user) {
+            this.router.navigate(['dashboard']);
+        } else {
+            this.router.navigate(['login']);
+        }
     }
 
     ngDoCheck() {

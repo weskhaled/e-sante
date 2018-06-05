@@ -1,125 +1,135 @@
-<div class="main-content p-t-10 register-bg height-100" >
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-md-8 col-md-offset-2">
-              <div class="card">
-                  <div class="header">
-                      <h4 class="title">Créer un compte</h4>
-                  </div>
-                  <div class="content">
-                      <!-- <form> -->
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Type de compte</label>
-                                      <select [(ngModel)]="user.type" class="form-control">
+<div class="main-content p-t-10 register-bg height-100">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Créer un compte</h4>
+                    </div>
+
+                    <div class="content">
+                        <div class="alert alert-danger" *ngIf='error'>
+                            <span>{{ error }}</span>
+                        </div>
+                        <!-- <form> -->
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Type de compte</label>
+                                    <select [(ngModel)]="user.role" class="form-control">
                                         <option value="particulier">Particulier</option>
                                         <option value="medecin">Médecin</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Option</label>
-                                      <select [(ngModel)]="user.option" type="text" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Option</label>
+                                    <select [(ngModel)]="user.option" type="text" class="form-control">
                                         <option value="base">Option de base</option>
                                         <option value="famille">Option Famille</option>
                                         <option value="gold">Option Gold</option>
                                         <option value="premium">Option Premium</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Langue</label>
-                                      <select [(ngModel)]="user.language" type="text" class="form-control">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Langue</label>
+                                    <select [(ngModel)]="user.language" type="text" class="form-control">
                                         <option value="fr">Français</option>
                                         <option value="en">Anglais</option>
-                                      </select>
-                                  </div>
-                              </div>
-                          </div>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
 
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Email</label>
-                                      <input type="text" class="form-control" [(ngModel)]="user.email">
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="form-group">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Email</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.email">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
                                     <label>Avatar</label>
                                     <input type="text" class="form-control" [(ngModel)]="user.avatar">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Sexe</label>
-                                      <select [(ngModel)]="user.gender" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Mot de passe</label>
+                                    <input type="password" class="form-control" [(ngModel)]="user.password">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Sexe</label>
+                                    <select [(ngModel)]="user.gender" class="form-control">
                                         <option value="femme">Femme</option>
                                         <option value="homme">Homme</option>
-                                      </select>
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Prénom</label>
-                                      <input type="text" class="form-control" [(ngModel)]="user.firstname">
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="form-group">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Prénom</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.firstname">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
                                     <label>Nom</label>
                                     <input type="text" class="form-control" [(ngModel)]="user.lastname">
-                                  </div>
-                              </div>
-                          </div>
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Date de naissance</label>
-                                      <input [(ngModel)]="user.birthday" type="text" class="form-control">
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Mobile</label>
-                                      <input type="text" class="form-control" [(ngModel)]="user.mobile">
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="form-group">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Date de naissance</label>
+                                    <input [(ngModel)]="user.birthday" type="text" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Mobile</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.mobile">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
                                     <label>Téléphone</label>
                                     <input type="text" class="form-control" [(ngModel)]="user.phone">
-                                  </div>
-                              </div>
-                          </div>
+                                </div>
+                            </div>
+                        </div>
 
-                          <div class="row">
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Pays</label>
-                                      <input type="text" class="form-control" [(ngModel)]="user.country">
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Région</label>
-                                      <input type="text" class="form-control" [(ngModel)]="user.region">
-                                  </div>
-                              </div>
-                              <div class="col-md-4">
-                                  <div class="form-group">
-                                      <label>Ville</label>
-                                      <input type="text" class="form-control" [(ngModel)]="user.city">
-                                  </div>
-                              </div>
-                          </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Pays</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.country">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Région</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.region">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label>Ville</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.city">
+                                </div>
+                            </div>
+                        </div>
 
-                          <div class="row">
+                        <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Code postal</label>
@@ -127,20 +137,20 @@
                                 </div>
                             </div>
                             <div class="col-md-8">
-                              <div class="form-group">
-                                  <label>Adresse</label>
-                                  <input type="text" class="form-control" [(ngModel)]="user.address">
-                              </div>
-                          </div>
-                          </div>
-                          
-                          <button (click)="register()" type="submit" class="btn btn-info btn-fill pull-right">S'inscrire</button>
-                          <div class="clearfix"></div>
-                          <a routerLink="/login">Vous avez déjà un compte ?</a>
-                      <!-- </form> -->
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+                                <div class="form-group">
+                                    <label>Adresse</label>
+                                    <input type="text" class="form-control" [(ngModel)]="user.address">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button (click)="register()" type="submit" class="btn btn-info btn-fill pull-right">S'inscrire</button>
+                        <div class="clearfix"></div>
+                        <a routerLink="/login">Vous avez déjà un compte ?</a>
+                        <!-- </form> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>

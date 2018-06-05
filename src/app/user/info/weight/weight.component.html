@@ -1,0 +1,58 @@
+<div class="main-content" >
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Poids</h4>
+                    </div>
+                    <div class="content">
+                            
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Votre poids</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Date de mesure</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-info btn-fill pull-right">Modifier</button>
+                            <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Historique de votre poids</h4>
+                        <p class="category"></p>
+                    </div>
+                    <div class="content table-responsive table-full-width">
+                          <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th *ngFor="let cell of tableData1.headerRow">{{ cell }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let row of tableData1.dataRows">
+                                        <td *ngFor="let cell of row">{{cell}}</td>
+                                    </tr>
+                                </tbody>
+                          </table>
+
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>

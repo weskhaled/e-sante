@@ -17,5 +17,4 @@ export class GlobalService {
             return true;
         }
     }
-
 }
