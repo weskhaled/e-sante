@@ -10,7 +10,7 @@ import { SanteService } from '../../../shared/services/sante.service';
 })
 export class SurgeryComponent implements OnInit {
     tableData: { headerRow: string[]; dataRows: string[][]; };
-    item: any = { surgery: null };
+    item: any = { surgery: null, start_date:null, description: null  };
     userId: any;
     count: any;
     constructor(private service: SanteService, private userService: UserService) { }
@@ -51,4 +51,11 @@ export class SurgeryComponent implements OnInit {
         });
     }
 
+    delete (event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        var id = target.id;
+        this.service.deleteSurgery(id).subscribe(data => {
+            target.parentElement.parentElement.remove();
+        });
+    }
 }

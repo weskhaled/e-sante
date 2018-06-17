@@ -37,7 +37,7 @@ export class WeightComponent implements OnInit {
                     var i = 1;
                     for (let weight of this.weights) {
                         let row: any[];
-                        row = [i, weight.weight, weight.date];
+                        row = [i, weight.weight, weight.date, weight._id];
                         this.tableData.dataRows.push(row);
                         i++;
                     }
@@ -87,5 +87,13 @@ export class WeightComponent implements OnInit {
             });
         }
 
+    }
+
+    delete (event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        var id = target.id;
+        this.infoService.deleteWeight(id).subscribe(data => {
+            target.parentElement.parentElement.remove();
+        });
     }
 }

@@ -51,4 +51,11 @@ export class DiseaseComponent implements OnInit {
         });
     }
 
+    delete (event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        var id = target.id;
+        this.service.deleteDisease(id).subscribe(data => {
+            target.parentElement.parentElement.remove();
+        });
+    }
 }

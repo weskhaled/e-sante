@@ -38,7 +38,7 @@ export class HeightComponent implements OnInit {
                     var i = 1;
                     for (let height of this.heights) {
                         let row: any[];
-                        row = [i, height.height, height.date];
+                        row = [i, height.height, height.date, height._id];
                         this.tableData.dataRows.push(row);
                         i++;
                     }
@@ -87,5 +87,13 @@ export class HeightComponent implements OnInit {
             });
         }
 
+    }
+
+    delete (event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        var id = target.id;
+        this.infoService.deleteHeight(id).subscribe(data => {
+            target.parentElement.parentElement.remove();
+        });
     }
 }

@@ -40,6 +40,7 @@
                                 <thead>
                                     <tr>
                                         <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -47,6 +48,9 @@
                                         <td>{{ row[0] }}</td>
                                         <td>{{ row[1] }}</td>
                                         <td>{{ row[2] | date:"dd-MM-yyyy" }}</td>
+                                        <td>
+                                            <button *ngIf="row[3]" id="{{row[3]}}" class="btn btn-info btn-fill pe-7s-trash" (click)="delete($event)"></button>
+                                        </td>
                                     </tr>
                                 </tbody>
                           </table>

@@ -60,4 +60,29 @@ export class SanteService {
         return this.http.get("http://localhost:3000/sante/teeths/" + userId);
     }
 
+    //delete
+    deleteAllergy(allergyId): any {
+        return this.http.delete("http://localhost:3000/sante/allergies/" + allergyId);
+    }
+    //delete
+    deleteDisease(diseaseId): any {
+        return this.http.delete("http://localhost:3000/sante/diseases/" + diseaseId);
+    }
+    //delete
+    deleteMedicament(medicamentId): any {
+        return this.http.delete("http://localhost:3000/sante/medicaments/" + medicamentId);
+    }
+    //delete
+    deleteSurgery(surgeryId): any {
+        return this.http.delete("http://localhost:3000/sante/surgerys/" + surgeryId);
+    }
+    //delete
+    deleteVaccination(vaccinationId): any {
+        return this.http.delete("http://localhost:3000/sante/vaccinations/" + vaccinationId);
+    }
+    //delete
+    deleteTeeth(teethId): any {
+        return this.http.delete("http://localhost:3000/sante/teeths/" + teethId);
+    }
+
 }

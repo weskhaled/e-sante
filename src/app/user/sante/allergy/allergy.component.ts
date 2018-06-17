@@ -51,4 +51,11 @@ export class AllergyComponent implements OnInit {
         });
     }
 
+    delete (event) {
+        var target = event.target || event.srcElement || event.currentTarget;
+        var id = target.id;
+        this.service.deleteAllergy(id).subscribe(data => {
+            target.parentElement.parentElement.remove();
+        });
+    }
 }

@@ -41,6 +41,10 @@ export class InfoService {
         return this.http.put("http://localhost:3000/infos/heights/" + heightId, height);
     }
 
+    deleteHeight(heightId): any {
+        return this.http.delete("http://localhost:3000/infos/heights/history/" + heightId);
+    }
+
     // weight
     createWeight(weight): any {
         return this.http.post("http://localhost:3000/infos/weights", weight);
@@ -60,5 +64,9 @@ export class InfoService {
 
     updateWeight(weightId, weight): any {
         return this.http.put("http://localhost:3000/infos/weights/" + weightId, weight);
+    }
+
+    deleteWeight(weightId): any {
+        return this.http.delete("http://localhost:3000/infos/weights/history/" + weightId);
     }
 }

@@ -59,6 +59,9 @@
                                     <td>{{ row[1] }}</td>
                                     <td>{{ row[2] | date:'dd/MM/yyyy'}}</td>
                                     <td>{{ row[3] }}</td>
+                                    <td>
+                                        <button *ngIf="row[4]" id="{{row[4]}}" class="btn btn-info btn-fill pe-7s-trash" (click)="delete($event)"></button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

@@ -20,7 +20,10 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Acte : soin / extraction</label>
-                                    <input type="text" class="form-control" [(ngModel)]="item.act">
+                                    <select [(ngModel)]="item.act" type="text" class="form-control">
+                                        <option value="soin">soin</option>
+                                        <option value="extraction">extraction</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -75,6 +78,9 @@
                                     <td>{{ row[3] }}</td>
                                     <td>{{ row[4] | date:'dd/MM/yyyy'}}</td>
                                     <td>{{ row[5] }}</td>
+                                    <td>
+                                        <button *ngIf="row[6]" id="{{row[6]}}" class="btn btn-info btn-fill pe-7s-trash" (click)="delete($event)"></button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
