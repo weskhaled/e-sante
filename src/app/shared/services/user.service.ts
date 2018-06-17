@@ -29,4 +29,10 @@ export class UserService {
     loginUser(user): any {
         return this.http.post('http://localhost:3000/login', user);
     }
+
+    getCurrentUserId(): any {
+        let user = JSON.parse(localStorage.getItem('user'));
+        return user._id;
+    }
+
 }

@@ -19,9 +19,7 @@ export class AppComponent implements OnInit {
     ngOnInit() {
         this.urlInfo = this.urlcheck.getURLInfo();
         this.user = JSON.parse(localStorage.getItem('user'));
-        if (this.user) {
-            this.router.navigate(['dashboard']);
-        } else {
+        if (!this.user) {
             this.router.navigate(['login']);
         }
     }
