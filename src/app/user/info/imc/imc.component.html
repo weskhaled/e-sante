@@ -1,0 +1,74 @@
+<div class="main-content" >
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-4">
+              <div class="card">
+                  <div class="header">
+                      <h4 class="title">IMC</h4>
+                  </div>
+                  <div class="content">
+                          
+                          <div class="row">
+                              <div class="col-md-12">
+                                  Poids : {{weight}} Kg <br>
+                                  Taile : {{height}} Cm <br>
+                                  IMC : {{ imc }}
+                              </div>
+                          </div>
+                          
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-8">
+              <div class="card">
+                  <div class="header">
+                      <h4 class="title">Interprétation de l'IMC</h4>
+                      <p class="category"></p>
+                  </div>
+                  <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                              <thead>
+                                  <tr>
+                                      <th>IMC</th>
+                                      <th>Interprétation</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                  <tr>
+                                      <td>+ de 40</td>
+                                      <td>obésité morbide ou massive</td>
+                                  </tr>
+                                  <tr>
+                                      <td>35 à 40</td>
+                                      <td>obésité sévère</td>
+                                  </tr>
+                                  <tr>
+                                      <td>30 à 35</td>
+                                      <td>obésité modérée</td>
+                                  </tr>
+                                  <tr>
+                                      <td>25 à 30</td>
+                                      <td>surpoids</td>
+                                  </tr>
+                                  <tr>
+                                      <td>18.5 à 25</td>
+                                      <td>corpulence normale</td>
+                                  </tr>
+                                  <tr>
+                                      <td>16.5 à 18.5</td>
+                                      <td>maigreur</td>
+                                  </tr>
+                                  <tr>
+                                      <td>- de 16.5</td>
+                                      <td>famine</td>
+                                  </tr>
+                              </tbody>
+                        </table>
+
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>

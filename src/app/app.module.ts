@@ -35,6 +35,7 @@ import { DoctorComponent } from './user/medical/doctor/doctor.component';
 import { ConsultationComponent } from './user/medical/consultation/consultation.component';
 import { AnalysisComponent } from './user/medical/analysis/analysis.component';
 import { RadiologyComponent } from './user/medical/radiology/radiology.component';
+import { ImcComponent } from './user/info/imc/imc.component';
 
 @NgModule({
     declarations: [
@@ -60,7 +61,8 @@ import { RadiologyComponent } from './user/medical/radiology/radiology.component
         DoctorComponent,
         ConsultationComponent,
         AnalysisComponent,
-        RadiologyComponent
+        RadiologyComponent,
+        ImcComponent
     ],
     imports: [
         BrowserModule,

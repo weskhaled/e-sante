@@ -18,7 +18,7 @@ export class SurgeryComponent implements OnInit {
     ngOnInit() {
         this.userId = this.userService.getCurrentUserId();
         this.tableData = {
-            headerRow: ['ID', 'Chirurgie'],
+            headerRow: ['ID', 'Chirurgie', 'Date', 'Autres'],
             dataRows: []
         };
         this.getAll();
@@ -29,7 +29,7 @@ export class SurgeryComponent implements OnInit {
         this.service.addSurgery(this.item).subscribe(data => {
             if (data) {
                 let row: any[];
-                row = [this.count, data.surgery, data._id];
+                row = [this.count, data.surgery, data.start_date, data.description, data._id];
                 this.tableData.dataRows.push(row);
                 this.count++;
             }
@@ -37,12 +37,12 @@ export class SurgeryComponent implements OnInit {
     }
 
     getAll() {
-        this.service.getSurgerys(this.userId).subscribe(data => {
-            if (data) {
+        this.service.getSurgerys(this.userId).subscribe(datas => {
+            if (datas) {
                 var i = 1;
-                for (let item of data) {
+                for (let data of datas) {
                     let row: any[];
-                    row = [i, item.surgery, data._id];
+                    row = [i, data.surgery, data.start_date, data.description, data._id];
                     this.tableData.dataRows.push(row);
                     i++;
                 }

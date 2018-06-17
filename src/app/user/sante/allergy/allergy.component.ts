@@ -18,7 +18,7 @@ export class AllergyComponent implements OnInit {
     ngOnInit() {
         this.userId = this.userService.getCurrentUserId();
         this.tableData = {
-            headerRow: ['ID', 'Allergie'],
+            headerRow: ['ID', 'Maladie', 'Année de détection', 'En cours', 'Année de fin', 'Autres'],
             dataRows: []
         };
         this.getAll();
@@ -29,7 +29,7 @@ export class AllergyComponent implements OnInit {
         this.service.addAllergy(this.item).subscribe(data => {
             if (data) {
                 let row: any[];
-                row = [this.count, data.allergy, data._id];
+                row = [this.count, data.allergy, data.start_date, data.in_progress, data.end_date, data.description, data._id];
                 this.tableData.dataRows.push(row);
                 this.count++;
             }
@@ -37,12 +37,12 @@ export class AllergyComponent implements OnInit {
     }
 
     getAll() {
-        this.service.getAllergies(this.userId).subscribe(data => {
-            if (data) {
+        this.service.getAllergies(this.userId).subscribe(datas => {
+            if (datas) {
                 var i = 1;
-                for (let item of data) {
+                for (let data of datas) {
                     let row: any[];
-                    row = [i, item.allergy, data._id];
+                    row = [i, data.allergy, data.start_date, data.in_progress, data.end_date, data.description, data._id];
                     this.tableData.dataRows.push(row);
                     i++;
                 }

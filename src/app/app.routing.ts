@@ -26,6 +26,7 @@ import { ConsultationComponent } from './user/medical/consultation/consultation.
 import { analyzeAndValidateNgModules } from '@angular/compiler';
 import { AnalysisComponent } from './user/medical/analysis/analysis.component';
 import { RadiologyComponent } from './user/medical/radiology/radiology.component';
+import { ImcComponent } from './user/info/imc/imc.component';
 
 const routes: Routes = [
   { path: 'dashboard', component: HomeComponent },
@@ -38,6 +39,7 @@ const routes: Routes = [
   { path: 'blood', component: BloodComponent },
   { path: 'height', component: HeightComponent },
   { path: 'weight', component: WeightComponent },
+  { path: 'imc', component: ImcComponent },
 
   { path: 'allergy', component: AllergyComponent },
   { path: 'disease', component: DiseaseComponent },

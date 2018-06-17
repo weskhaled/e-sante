@@ -17,6 +17,48 @@
                               </div>
                           </div>
                           
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Longue durée?</label>
+                                        <input type="checkbox" [(ngModel)]="item.duration">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Sans ordonnance?</label>
+                                            <input type="checkbox" [(ngModel)]="item.without_order">
+                                        </div>
+                                    </div>
+                                </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Début traitement</label>
+                                        <input type="date" class="form-control" [(ngModel)]="item.start_date">
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Fin traitement</label>
+                                        <input type="date" class="form-control" [(ngModel)]="item.end_date">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Autres informations</label>
+                                        <textarea class="form-control" [(ngModel)]="item.description"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                          
                           <button type="submit" class="btn btn-info btn-fill pull-right" (click)="add()">Ajouter</button>
                           <div class="clearfix"></div>
                   </div>
@@ -39,6 +81,11 @@
                                   <tr *ngFor="let row of tableData.dataRows">
                                       <td>{{ row[0] }}</td>
                                       <td>{{ row[1] }}</td>
+                                      <td>{{ row[2] }}</td>
+                                      <td>{{ row[3] }}</td>
+                                      <td>{{ row[4] | date:'dd/MM/yyyy'}}</td>
+                                      <td>{{ row[5] | date:'dd/MM/yyyy'}}</td>
+                                      <td>{{ row[6] }}</td>
                                   </tr>
                               </tbody>
                         </table>

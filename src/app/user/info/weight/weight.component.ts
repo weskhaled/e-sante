@@ -69,6 +69,7 @@ export class WeightComponent implements OnInit {
 
         if (this.weightId) {
             this.infoService.createWeightHistory(this.initWeight).subscribe(data => {
+                console.log(data)
                 let row: any[];
                 row = [this.count++, data.weight, data.date];
                 this.tableData.dataRows.push(row);

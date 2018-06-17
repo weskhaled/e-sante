@@ -23,6 +23,7 @@ export const ROUTES: RouteInfo[] = [
             { path: 'blood', title: 'Groupe sanguin',  icon:'pe-7s-note', class: '' },
             { path: 'height', title: 'Taille',  icon:'pe-7s-note', class: '' },
             { path: 'weight', title: 'Poids',  icon:'pe-7s-note', class: '' },
+            { path: 'imc', title: 'IMC',  icon:'pe-7s-note', class: '' },
         ]
     },
     
