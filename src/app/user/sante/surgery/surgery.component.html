@@ -20,7 +20,7 @@
                             <div class="col-md-12">
                                 <div class="form-group">
                                     <label>Date</label>
-                                    <input type="date" class="form-control" [(ngModel)]="item.start_date">
+                                    <angular2-date-picker [(ngModel)]="item.start_date" [settings]="{ bigBanner: false, timePicker: false, format: 'yyyy-MM-dd' }"></angular2-date-picker>
                                 </div>
                             </div>
                         </div>

@@ -3,7 +3,7 @@
         
         <div class="row">
             <div class="col-md-6">
-                <lbd-chart
+                <lbd-chart *ngIf="tailleChartData"
                   [title]="'Tailles / temps'"
                   [subtitle]="'Historique de taille en fonction du temps'"
                   [chartType]="tailleChartType"
@@ -11,13 +11,13 @@
                   [chartOptions]="tailleChartOptions"
                   [chartResponsive]="tailleChartResponsive"
                   [legendItems]="tailleChartLegendItems"
-                  [withHr]="true"
+                  [withHr]="false"
                   >
                 </lbd-chart>
             </div>
 
             <div class="col-md-6">
-                <lbd-chart
+                <lbd-chart *ngIf="poidsChartData"
                   [title]="'Poids / temps'"
                   [subtitle]="'Historique de poids en fonction du temps'"
                   [chartType]="poidsChartType"
@@ -25,7 +25,7 @@
                   [chartOptions]="poidsChartOptions"
                   [chartResponsive]="poidsChartResponsive"
                   [legendItems]="poidsChartLegendItems"
-                  [withHr]="true"
+                  [withHr]="false"
                   >
                 </lbd-chart>
             </div>

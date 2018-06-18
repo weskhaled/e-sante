@@ -71,7 +71,7 @@ export class HeightComponent implements OnInit {
         if (this.heightId) {
             this.infoService.createHeightHistory(this.initHeight).subscribe(data => {
                 let row: any[];
-                row = [this.count++, data.height, data.date];
+                row = [this.count++, data.height, data.date, data._id];
                 this.tableData.dataRows.push(row);
             });
             this.infoService.updateHeight(this.heightId, this.height).subscribe(data => {

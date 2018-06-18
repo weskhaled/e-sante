@@ -7,6 +7,12 @@
                         <h4 class="title">Modifier mon Profil</h4>
                     </div>
                     <div class="content">
+                        <div class="alert alert-danger" *ngIf='error'>
+                            <span>{{ error }}</span>
+                        </div>
+                        <div class="alert alert-success" *ngIf='success'>
+                            <span>{{ success }}</span>
+                        </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -52,7 +58,7 @@
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label>Date de naissance</label>
-                                    <input [(ngModel)]="user.birthday" type="date" class="form-control">
+                                    <angular2-date-picker [(ngModel)]="user.birthday" [settings]="{ bigBanner: false, timePicker: false, format: 'yyyy-MM-dd' }"></angular2-date-picker>
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -126,7 +132,7 @@
                                 </h4>
                             </a>
                         </div>
-                        <p class="description text-center"> 
+                        <p class="description text-center">
                         </p>
                     </div>
                     <hr>

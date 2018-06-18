@@ -32,17 +32,65 @@ export class HomeComponent implements OnInit {
 
     ngOnInit() {
         this.userId = this.userService.getCurrentUserId();
-        var heightSeries = this.getHeight();
-        var weightSeries = this.getWeight();
-        console.log(heightSeries.series)
+        this.getHeight();
+        this.getWeight();
+    }
 
+    getHeight() {
+        var heightSeries = { labels: [], series: [] }
+        this.infoService.getHeight(this.userId).subscribe(data => {
+
+            if (data) {
+                var heightId = data._id;
+                this.infoService.getAllHeights(heightId).subscribe(data2 => {
+                    if (data2) {
+                        for (let height of data2) {
+                            heightSeries.labels.push(this.convertDate(height.date));
+                            heightSeries.series.push(height.height);
+                        }
+
+                        heightSeries.labels.push(this.convertDate(data.date));
+                        heightSeries.series.push(data.height);
+                        this.buildHeight(heightSeries);
+                    }
+                });
+            }
+        });
+    }
+
+    getWeight() {
+        var weightSeries = { labels: [], series: [] }
+        this.infoService.getWeight(this.userId).subscribe(data => {
+
+            if (data) {
+                var weightId = data._id;
+                this.infoService.getAllWeights(weightId).subscribe(data2 => {
+                    if (data2) {
+                        for (let weight of data2) {
+                            weightSeries.labels.push(this.convertDate(weight.date));
+                            weightSeries.series.push(weight.weight);
+                        }
+
+                        weightSeries.labels.push(this.convertDate(data.date));
+                        weightSeries.series.push(data.weight);
+                        this.buildWeight(weightSeries);
+                    }
+                });
+            }
+        });
+
+        return weightSeries;
+    }
+
+    buildHeight(heightSeries) {
         this.tailleChartType = ChartType.Line;
         this.tailleChartData = {
             labels: heightSeries.labels,
             series: [
-                [158, 160, 170, 178]
+                heightSeries.series
             ]
         };
+
         this.tailleChartOptions = {
             seriesBarDistance: 10,
             axisX: {
@@ -60,13 +108,15 @@ export class HomeComponent implements OnInit {
                 }
             }]
         ];
+    }
 
-
+    buildWeight(weightSeries) {
+        
         this.poidsChartType = ChartType.Line;
         this.poidsChartData = {
             labels: weightSeries.labels,
             series: [
-                [70, 65, 77, 82]
+                weightSeries.series
             ]
         };
         this.poidsChartOptions = {
@@ -86,53 +136,6 @@ export class HomeComponent implements OnInit {
                 }
             }]
         ];
-
-    }
-
-    getHeight() {
-        var heightSeries = { labels: [], series: [] }
-        this.infoService.getHeight(this.userId).subscribe(data => {
-
-            if (data) {
-                var heightId = data._id;
-                this.infoService.getAllHeights(heightId).subscribe(data2 => {
-                    if (data2) {
-                        for (let height of data2) {
-                            heightSeries.labels.push(this.convertDate(height.date));
-                            heightSeries.series.push(height.height);
-                        }
-
-                        heightSeries.labels.push(this.convertDate(data.date));
-                        heightSeries.series.push(data.height);
-                    }
-                });
-            }
-        });
-
-        return heightSeries;
-    }
-
-    getWeight() {
-        var weightSeries = { labels: [], series: [] }
-        this.infoService.getWeight(this.userId).subscribe(data => {
-
-            if (data) {
-                var weightId = data._id;
-                this.infoService.getAllWeights(weightId).subscribe(data2 => {
-                    if (data2) {
-                        for (let weight of data2) {
-                            weightSeries.labels.push(this.convertDate(weight.date));
-                            weightSeries.series.push(weight.weight);
-                        }
-
-                        weightSeries.labels.push(this.convertDate(data.date));
-                        weightSeries.series.push(data.weight);
-                    }
-                });
-            }
-        });
-
-        return weightSeries;
     }
 
     convertDate(inputFormat) {
@@ -140,4 +143,5 @@ export class HomeComponent implements OnInit {
         var d = new Date(inputFormat);
         return [pad(d.getDate()), pad(d.getMonth() + 1), d.getFullYear().toString().substring(2, 4)].join('/');
     }
+
 }

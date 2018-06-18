@@ -10,6 +10,8 @@ import { UserService } from '../../shared/services/user.service';
 export class ProfileComponent implements OnInit {
     user: any = {};
     userId: any;
+    error: any;
+    success: any;
     constructor(private userService: UserService) { }
 
     ngOnInit() {
@@ -18,12 +20,14 @@ export class ProfileComponent implements OnInit {
     }
     
     update() {
+        this.success = "";
+        this.error = "";
         this.userService.updateUser(this.userId, this.user).subscribe(data => {
-            console.log(this.userId)
-            console.log(this.user)
-            console.log(data)
             if (!data.errors) {
+                localStorage.setItem('user', JSON.stringify(data));
+                this.success = "Les modifications ont été enregistrées avec succès.";
             } else {
+                this.error = "une erreur s'est produite veuillez vérifier vos informations !";
             }
         });
     }

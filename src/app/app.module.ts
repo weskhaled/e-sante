@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { AngularDateTimePickerModule } from 'angular2-datetimepicker';
 
 import { AppRoutingModule } from './app.routing';
 import { NavbarModule } from './shared/navbar/navbar.module';
@@ -74,7 +75,8 @@ import { ImcComponent } from './user/info/imc/imc.component';
         RouterModule,
         AppRoutingModule,
         LbdModule,
-        HttpClientModule
+        HttpClientModule,
+        AngularDateTimePickerModule
     ],
     providers: [],
     bootstrap: [AppComponent]
